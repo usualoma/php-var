@@ -24,7 +24,7 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-    use PHP::Var;
+    use PHP::Var qw/ export /;
 
     $var = {foo => 1, bar => 2};
 
