@@ -1,0 +1,15 @@
+.shipit
+Build.PL
+Changes
+lib/PHP/Var.pm
+Makefile.PL
+MANIFEST
+META.yml
+README
+t/00-load.t
+t/01-export.t
+t/02-binary.php
+t/02-binary.t
+t/boilerplate.t
+t/pod-coverage.t
+t/pod.t

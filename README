@@ -1,0 +1,114 @@
+NAME
+    PHP::Var - export variable to PHP's expression.
+
+VERSION
+    Version 0.01
+
+SYNOPSIS
+        use PHP::Var;
+
+        $var = {foo => 1, bar => 2};
+
+        # export
+        $exported = export($var);
+
+        # named variable
+        $named = export('name' => $var);
+
+        # enclose variables with '<?php' and  '?>'
+        $enclosed  = export($var, enclose => 1);
+
+        # purity print
+        $purity  = export($var, purity => 1);
+
+EXPORT
+    export
+
+FUNCTIONS
+  export
+        export($var);
+        # array('foo'=>'1','bar'=>'2',);
+
+        export('name' => $var);
+        # $name=array('foo'=>'1','bar'=>'2',);
+
+        export($var, enclose => 1);
+        # <?php
+        # array('foo'=>'1','bar'=>'2',);
+        # ?>
+
+        export($var, purity => 1);
+        # array(
+        #    'foo' => '1',
+        #    'bar' => '2'
+        # );
+
+Configuration Variables
+  $PHP::Var::Purity
+    When this variable is set, the expression becomes a Pretty print in
+    default.
+
+        {
+            local $PHP::Var::Purity = 1;
+            export($var);
+            # array(
+            #    'foo' => '1',
+            #    'bar' => '2'
+            # );
+        }
+
+  $PHP::Var::Enclose
+    When this variable is set, the expression is enclosed with '<?php' and
+    '?>' in default.
+
+        {
+            local $PHP::Var::Enclose = 1;
+            export($var);
+            # <?php
+            # array('foo'=>'1','bar'=>'2',);
+            # ?>
+        }
+
+AUTHOR
+    Taku Amano, "<taku at toi-planning.net>"
+
+BUGS
+    Please report any bugs or feature requests to "bug-php-var at
+    rt.cpan.org", or through the web interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=PHP-Var>. I will be
+    notified, and then you'll automatically be notified of progress on your
+    bug as I make changes.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc PHP::Var
+
+    You can also look for information at:
+
+    *   RT: CPAN's request tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=PHP-Var>
+
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/PHP-Var>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/PHP-Var>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/PHP-Var/>
+
+ACKNOWLEDGEMENTS
+COPYRIGHT & LICENSE
+    Copyright 2009 Taku Amano.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of either: the GNU General Public License as published
+    by the Free Software Foundation; or the Artistic License.
+
+    See http://dev.perl.org/licenses/ for more information.
+
