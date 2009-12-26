@@ -22,8 +22,7 @@ SYNOPSIS
         $purity  = export($var, purity => 1);
 
 EXPORT
-    export
-
+  export
 FUNCTIONS
   export
         export($var);
@@ -72,6 +71,9 @@ Configuration Variables
 AUTHOR
     Taku Amano, "<taku at toi-planning.net>"
 
+SEE ALSO
+    PHP::Session
+
 BUGS
     Please report any bugs or feature requests to "bug-php-var at
     rt.cpan.org", or through the web interface at
@@ -102,7 +104,6 @@ SUPPORT
 
         <http://search.cpan.org/dist/PHP-Var/>
 
-ACKNOWLEDGEMENTS
 COPYRIGHT & LICENSE
     Copyright 2009 Taku Amano.
 

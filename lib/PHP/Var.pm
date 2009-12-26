@@ -42,7 +42,7 @@ our $VERSION = '0.01';
 
 =head1 EXPORT
 
-export
+=head2 export
 
 =head1 FUNCTIONS
 
@@ -183,6 +183,10 @@ sub _dump {
 
 Taku Amano, C<< <taku at toi-planning.net> >>
 
+=head1 SEE ALSO
+
+L<PHP::Session>
+
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-php-var at rt.cpan.org>, or through
@@ -220,10 +224,6 @@ L<http://cpanratings.perl.org/d/PHP-Var>
 L<http://search.cpan.org/dist/PHP-Var/>
 
 =back
-
-
-=head1 ACKNOWLEDGEMENTS
-
 
 =head1 COPYRIGHT & LICENSE
 

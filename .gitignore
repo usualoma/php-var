@@ -1,7 +1,11 @@
+cover_db
 META.yml
 Makefile
-inc/
+blib
+inc
 pm_to_blib
-*~
-
-.bak
+MANIFEST
+Makefile.old
+nytprof.out
+MANIFEST.bak
+*.sw[po]
