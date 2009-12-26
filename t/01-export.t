@@ -12,6 +12,7 @@ plan tests => 1*blocks;
 filters {
     hash     => [qw/chomp/],
     array    => [qw/chomp/],
+    scalar   => [qw/chomp/],
     expected => [qw/chomp/],
     enclose  => [qw/chomp/],
     purity   => [qw/chomp/],
@@ -28,6 +29,10 @@ run {
         %hash = eval($block->hash);
         $data = \%hash;
     }
+	elsif ($block->scalar) {
+		my $scalar = eval($block->scalar);
+		$data = \$scalar;
+	}
     else {
         my @array = eval($block->array);
         $data = \@array;
@@ -52,6 +57,12 @@ sub eval_string {
 }
 
 __END__
+
+=== Simple Scalar
+--- scalar
+'a'
+--- expected
+'a';
 
 === Simple Hash
 --- hash

@@ -167,6 +167,11 @@ sub _dump {
         }
         $str .= "$cur_indent)";
     }
+	elsif (ref $obj eq 'SCALAR') {
+        $$obj =~ s/\\/\\\\/go;
+        $$obj =~ s/'/\\'/go;
+        $str .= "'$$obj'";
+	}
     elsif (defined($obj)) {
         $obj =~ s/\\/\\\\/go;
         $obj =~ s/'/\\'/go;
