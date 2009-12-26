@@ -185,7 +185,7 @@ Taku Amano, C<< <taku at toi-planning.net> >>
 
 =head1 SEE ALSO
 
-L<PHP::Session>
+L<PHP::Session::Serializer::PHP>
 
 =head1 BUGS
 

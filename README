@@ -72,7 +72,7 @@ AUTHOR
     Taku Amano, "<taku at toi-planning.net>"
 
 SEE ALSO
-    PHP::Session
+    PHP::Session::Serializer::PHP
 
 BUGS
     Please report any bugs or feature requests to "bug-php-var at
