@@ -3,8 +3,9 @@ package PHP::Var;
 use warnings;
 use strict;
 
-our @EXPORT_OK = qw( export );
+use Exporter;
 use base qw( Exporter );
+our @EXPORT_OK = qw( export );
 
 our $Purity = 0;
 our $Enclose = 0;
