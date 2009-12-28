@@ -1,0 +1,14 @@
+Source: libphp-var-perl
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: perl
+Maintainer: Taku Amano <taku@toi-planning.net>
+Standards-Version: 3.8.3
+Homepage: http://search.cpan.org/dist/PHP-Var/
+
+Package: libphp-var-perl
+Architecture: all
+Depends: ${perl:Depends}, ${misc:Depends}
+Description: export variable to PHP's expression.
+ export variable to PHP's expression.
