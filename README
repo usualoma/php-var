@@ -74,35 +74,10 @@ AUTHOR
 SEE ALSO
     PHP::Session::Serializer::PHP
 
-BUGS
-    Please report any bugs or feature requests to "bug-php-var at
-    rt.cpan.org", or through the web interface at
-    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=PHP-Var>. I will be
-    notified, and then you'll automatically be notified of progress on your
-    bug as I make changes.
-
 SUPPORT
     You can find documentation for this module with the perldoc command.
 
         perldoc PHP::Var
-
-    You can also look for information at:
-
-    *   RT: CPAN's request tracker
-
-        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=PHP-Var>
-
-    *   AnnoCPAN: Annotated CPAN documentation
-
-        <http://annocpan.org/dist/PHP-Var>
-
-    *   CPAN Ratings
-
-        <http://cpanratings.perl.org/d/PHP-Var>
-
-    *   Search CPAN
-
-        <http://search.cpan.org/dist/PHP-Var/>
 
 COPYRIGHT & LICENSE
     Copyright 2009 Taku Amano.
@@ -112,4 +87,11 @@ COPYRIGHT & LICENSE
     by the Free Software Foundation; or the Artistic License.
 
     See http://dev.perl.org/licenses/ for more information.
+
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 204:
+        =back without =over
 
