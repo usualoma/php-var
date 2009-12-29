@@ -201,8 +201,6 @@ You can find documentation for this module with the perldoc command.
 
     perldoc PHP::Var
 
-=back
-
 
 =head1 COPYRIGHT & LICENSE
 
