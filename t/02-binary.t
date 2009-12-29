@@ -4,7 +4,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 1;
+use Test::More;
 
 use File::Temp qw/ tempfile /;
 use File::Basename;
@@ -31,5 +31,7 @@ SKIP: {
 
     is($bin, $bin2);
 }
+
+done_testing;
 
 1;
