@@ -185,6 +185,16 @@ sub _dump {
     $str;
 }
 
+=head1 NOTES
+
+=over 4
+
+=item *
+
+PHP::Var::export cannot export the blessed object as data that can be restored.
+
+=back
+
 =head1 AUTHOR
 
 Taku Amano, C<< <taku at toi-planning.net> >>
