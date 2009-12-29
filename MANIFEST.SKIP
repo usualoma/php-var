@@ -20,6 +20,6 @@
 ^\.git/
 ^.gitignore$
 \.sw[po]$
-^debian$
+^debian/
 
 ^benchmark/
