@@ -65,7 +65,7 @@ our $VERSION = '0.02';
     export($var, purity => 1);
     # array(
     #    'foo' => '1',
-    #    'bar' => '2'
+    #    'bar' => '2',
     # );
 
 =head1 Configuration Variables
@@ -79,7 +79,7 @@ When this variable is set, the expression becomes a Pretty print in default.
         export($var);
         # array(
         #    'foo' => '1',
-        #    'bar' => '2'
+        #    'bar' => '2',
         # );
     }
 

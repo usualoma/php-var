@@ -41,7 +41,7 @@ FUNCTIONS
         export($var, purity => 1);
         # array(
         #    'foo' => '1',
-        #    'bar' => '2'
+        #    'bar' => '2',
         # );
 
 Configuration Variables
@@ -54,7 +54,7 @@ Configuration Variables
             export($var);
             # array(
             #    'foo' => '1',
-            #    'bar' => '2'
+            #    'bar' => '2',
             # );
         }
 
