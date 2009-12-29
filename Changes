@@ -1,4 +1,7 @@
 Revision history for PHP-Var
 
+0.02    Tue Dec 29 10:39:13 JST 2009
+	* Fixed some bugs.
+
 0.01    Sat Dec 26 17:36:48 JST 2009
 	* First version.

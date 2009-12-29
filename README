@@ -2,7 +2,7 @@ NAME
     PHP::Var - export variable to PHP's expression.
 
 VERSION
-    Version 0.01
+    Version 0.02
 
 SYNOPSIS
         use PHP::Var qw/ export /;
@@ -68,6 +68,10 @@ Configuration Variables
             # ?>
         }
 
+NOTES
+    *   PHP::Var::export cannot export the blessed object as data that can
+        be restored.
+
 AUTHOR
     Taku Amano, "<taku at toi-planning.net>"
 
@@ -87,11 +91,4 @@ COPYRIGHT & LICENSE
     by the Free Software Foundation; or the Artistic License.
 
     See http://dev.perl.org/licenses/ for more information.
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 204:
-        =back without =over
 
