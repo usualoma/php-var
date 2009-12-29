@@ -25,6 +25,8 @@ EXPORT
   export
 FUNCTIONS
   export
+        $var = {foo => 1, bar => 2};
+
         export($var);
         # array('foo'=>'1','bar'=>'2',);
 

@@ -49,6 +49,8 @@ our $VERSION = '0.02';
 
 =head2 export
 
+    $var = {foo => 1, bar => 2};
+
     export($var);
     # array('foo'=>'1','bar'=>'2',);
 
