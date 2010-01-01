@@ -2,7 +2,7 @@ NAME
     PHP::Var - export variable to PHP's expression.
 
 VERSION
-    Version 0.02
+    Version 0.021
 
 SYNOPSIS
         use PHP::Var qw/ export /;
