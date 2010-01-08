@@ -36,15 +36,26 @@ cmpthese(1_00, {
 	php_var_enclose => sub { &php_var('enclose' => 1, \%data) },
 });
 
+print("\n");
+
 my ($sess_fh, $sess_fn) = tempfile();
 print($sess_fh "<?php \$var = unserialize(<<<__EOD__\n" . &php_session(\%data) . "\n__EOD__\n);");
 close($sess_fh);
 
+my ($var_code_fh, $var_code_fn) = tempfile();
+print($var_code_fh &php_var('enclose' => 1, 'var' => \%data));
+close($var_code_fh);
 my ($var_fh, $var_fn) = tempfile();
-print($var_fh &php_var('enclose' => 1, 'var' => \%data));
+print($var_fh "<?php include('$var_code_fn'); ?>");
 close($var_fh);
+
+my ($eval_fh, $eval_fn) = tempfile(UNLINK => 0);
+print($eval_fh "<?php eval(<<<__EOD__\n\\\$var = " . &php_var(\%data) . "\n__EOD__\n) ?>");
+close($eval_fh);
 
 cmpthese(1_00, {
 	unserialize => sub { system("php $sess_fn") },
-	code => sub { system("php $var_fn") },
+	code_embed => sub { system("php $var_code_fn") },
+	code_include => sub { system("php $var_fn") },
+	'eval' => sub { system("php $eval_fn") },
 });
