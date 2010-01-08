@@ -56,6 +56,22 @@ sub eval_string {
     eval('"' . $_[0] . '"');
 }
 
+{
+	package PHP::Var::TestObject;
+	use overload qq("") => \&to_string;
+
+	sub new {
+		my $class = shift;
+		bless({ 'content' => shift }, $class);
+	}
+
+	sub to_string {
+		my $self = shift;
+		$self->{'content'} || '';
+	}
+}
+
+
 __END__
 
 === Simple Scalar
@@ -75,6 +91,12 @@ array('a'=>'b','c'=>'d',);
 ([1, 2], 3)
 --- expected
 array(array('1','2',),'3',);
+
+=== Export Object
+--- scalar
+PHP::Var::TestObject->new('test object');
+--- expected
+'test object';
 
 === Named
 --- hash

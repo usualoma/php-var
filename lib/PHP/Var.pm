@@ -123,7 +123,11 @@ sub export {
 
     my $str = '';
     for (my $i = 0; $i < scalar(@exports); $i += 2) {
-        $str .= &_dump($exports[$i+1], $exports[$i], $opts{purity}, 0) . ';';
+        $str .= &_dump(
+			ref $exports[$i+1] eq 'REF' ? ${ $exports[$i+1] } : $exports[$i+1],
+			$exports[$i],
+			$opts{purity}, 0
+		) . ';';
     }
 
     if ($opts{enclose}) {
