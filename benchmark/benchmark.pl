@@ -30,7 +30,7 @@ sub php_var {
 }
 
 cmpthese(1_00, {
-	pnp_session => sub { &php_session(\%data) },
+	serialize => sub { &php_session(\%data) },
 	php_var => sub { &php_var(\%data) },
 	php_var_purity => sub { &php_var('purity' => 1, \%data) },
 	php_var_enclose => sub { &php_var('enclose' => 1, \%data) },
@@ -38,24 +38,28 @@ cmpthese(1_00, {
 
 print("\n");
 
-my ($sess_fh, $sess_fn) = tempfile();
-print($sess_fh "<?php \$var = unserialize(<<<__EOD__\n" . &php_session(\%data) . "\n__EOD__\n);");
-close($sess_fh);
+sub _tempfile {
+	my $data = shift;
+	my ($fh, $fn) = tempfile();
+	print($fh $data);
+	close($fh);
+	$fn;
+}
 
-my ($var_code_fh, $var_code_fn) = tempfile();
-print($var_code_fh &php_var('enclose' => 1, 'var' => \%data));
-close($var_code_fh);
-my ($var_fh, $var_fn) = tempfile();
-print($var_fh "<?php include('$var_code_fn'); ?>");
-close($var_fh);
+my $sess_data = &_tempfile(&php_session(\%data));
+my $sess = &_tempfile(
+	"<?php \$var = unserialize(file_get_contents('$sess_data')); ?>"
+);
 
-my ($eval_fh, $eval_fn) = tempfile(UNLINK => 0);
-print($eval_fh "<?php eval(<<<__EOD__\n\\\$var = " . &php_var(\%data) . "\n__EOD__\n) ?>");
-close($eval_fh);
+my $var_code = &_tempfile(&php_var('enclose' => 1, 'var' => \%data));
+my $var = &_tempfile("<?php include('$var_code'); ?>");
+
+my $eval_data = &_tempfile(&php_var(\%data));
+my $eval = &_tempfile("<?php eval(file_get_contents('$eval_data')); ?>");
 
 cmpthese(1_00, {
-	unserialize => sub { system("php $sess_fn") },
-	code_embed => sub { system("php $var_code_fn") },
-	code_include => sub { system("php $var_fn") },
-	'eval' => sub { system("php $eval_fn") },
+	unserialize => sub { system("php $sess") },
+	code_embed => sub { system("php $var_code") },
+	code_include => sub { system("php $var") },
+	'eval' => sub { system("php $eval") },
 });
