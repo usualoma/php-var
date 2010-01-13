@@ -16,11 +16,11 @@ PHP::Var - export variable to PHP's expression.
 
 =head1 VERSION
 
-Version 0.022
+Version 0.03
 
 =cut
 
-our $VERSION = '0.022';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
